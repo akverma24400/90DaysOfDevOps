@@ -49,6 +49,8 @@ Displays detailed system information including:
 sudo hostnamectl set-hostname devops-server
 ```
 
+(images/2.png)
+
 **Purpose**
 
 Changes the system hostname permanently.
