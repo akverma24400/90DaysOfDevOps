@@ -85,6 +85,8 @@ Shows:
 ps aux --sort=-%cpu | head
 ```
 
+<img src="images/4.png">
+
 **Purpose**
 
 Displays the processes consuming the highest CPU.
@@ -98,6 +100,7 @@ Displays the processes consuming the highest CPU.
 ```bash
 pstree -p
 ```
+<img src="images/5.png">
 
 **Purpose**
 
@@ -114,6 +117,8 @@ Shows the parent-child relationship between running processes.
 ```bash
 systemctl list-units --type=service --state=running
 ```
+
+<img src="images/6.png">
 
 
 **Purpose**
@@ -147,6 +152,7 @@ Displays:
 ```bash
 systemctl list-dependencies ssh
 ```
+<img src="images/7.png">
 
 **Purpose**
 
@@ -193,6 +199,8 @@ Shows all error-level messages from the current boot.
 ```bash
 df -h
 ```
+
+<img src="images/8.png">
 
 **Purpose**
 
