@@ -49,7 +49,7 @@ Displays detailed system information including:
 sudo hostnamectl set-hostname devops-server
 ```
 
-(images/2.png)
+![CPU Processes](images/2.png)
 
 **Purpose**
 
@@ -66,6 +66,7 @@ Changes the system hostname permanently.
 ```bash
 uptime
 ```
+<img src="images/3.png">
 
 **Purpose**
 
