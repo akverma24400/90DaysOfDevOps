@@ -1,0 +1,20 @@
+========== LOG ANALYSIS REPORT ==========
+
+Date of analysis: Fri Aug 14 17:06:12 UTC 2026
+Log file name: sample.log
+Total lines processed: 99
+Total error count: 26
+
+---------- Top 5 Error Messages ----------
+      1 2026-08-14 10:04:45 ERROR Connection timeout
+      1 2026-08-14 10:04:36 ERROR Database connection failed
+      1 2026-08-14 10:04:27 ERROR File not found
+      1 2026-08-14 10:04:18 ERROR Permission denied
+      1 2026-08-14 10:04:06 ERROR Database connection failed
+
+---------- Critical Events ----------
+Line 10: 2026-08-14 10:00:30 CRITICAL Database server unavailable
+Line 28: 2026-08-14 10:01:24 CRITICAL Application crash detected
+Line 57: 2026-08-14 10:02:51 CRITICAL Out of memory condition detected
+Line 98: 2026-08-14 10:04:54 CRITICAL Security breach detected
+
