@@ -28,7 +28,7 @@ You will:
 ---
 
 ### Task 2: Create Your Git Project
-1. Create a new folder called `devops-git-practice`
+1. Create a new folder called `c`
 2. Initialize it as a Git repository
 3. Check the status — read and understand what Git is telling you
 4. Explore the hidden `.git/` directory — look at what's inside
