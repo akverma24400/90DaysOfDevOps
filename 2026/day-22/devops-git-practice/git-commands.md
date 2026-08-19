@@ -19,3 +19,46 @@
 9. Use `git log` to view the detailed commit history.
 
 10. Use `git log --oneline` to view the commit history in a compact format.
+
+
+# Day 23 – Git Branching & GitHub Commands
+
+## Git Branching Commands
+
+1. `git branch` — Lists all local branches and shows the current branch.
+
+2. `git checkout -b feature-1` — Creates a new `feature-1` branch and switches to it.
+
+3. `git branch feature-2` — Creates a new `feature-2` branch without switching to it.
+
+4. `git switch feature-2` — Switches to the `feature-2` branch.
+
+5. `git checkout main` — Switches to the `main` branch.
+
+6. `git checkout master` — Switches to the `master` branch.
+
+7. `git checkout feature-1` — Switches to the `feature-1` branch.
+
+8. `git switch master` — Switches to the `master` branch.
+
+9. `git branch -d feature-2` — Deletes the local `feature-2` branch if it has been merged.
+
+## GitHub / Remote Commands
+
+10. `git remote add origin <repo-link>` — Connects the local repository to a GitHub repository named `origin`.
+
+11. `git branch -M main` — Renames the current branch to `main`.
+
+12. `git push -u origin main` — Pushes the `main` branch to GitHub and sets it as the upstream branch.
+
+13. `git push -u origin feature-1` — Pushes the `feature-1` branch to GitHub and sets it as the upstream branch.
+
+14. `git pull origin <branch-name>` — Fetches and integrates changes from the specified remote branch.
+
+15. `git clone <repo-link>` — Clones an existing GitHub repository to the local machine.
+
+## Day 23 Summary
+
+> **Day 23:** Practiced Git branching, branch switching, branch deletion, remote repository setup, pushing branches to GitHub, pulling changes, and cloning repositories.
+
+
