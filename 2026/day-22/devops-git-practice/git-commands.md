@@ -57,8 +57,39 @@
 
 15. `git clone <repo-link>` — Clones an existing GitHub repository to the local machine.
 
-## Day 23 Summary
+# Git Advanced Commands – Day 24
 
-> **Day 23:** Practiced Git branching, branch switching, branch deletion, remote repository setup, pushing branches to GitHub, pulling changes, and cloning repositories.
+## 1. Merging
 
+1. `git merge <branch-name>` — Combines another branch's changes into the current branch.
+2. `git merge --squash <branch-name>` — Combines all changes from a branch into the working tree without creating individual commits.
+3. `git merge main` — Merges the latest `main` branch changes into the current branch.
+4. `git merge feature-1` — Merges `feature-1` into the currently checked-out branch.
+
+## 2. Rebase
+
+5. `git rebase main` — Replays the current branch's commits on top of the latest `main`.
+6. `git rebase --continue` — Continues a rebase after resolving a conflict.
+7. `git rebase --skip` — Skips the commit currently being replayed during a rebase.
+8. `git rebase --abort` — Cancels the rebase and returns to the previous state.
+
+## 3. Merge & Rebase Conflict Handling
+
+9. `git add <file>` — Marks a conflicted file as resolved after manually fixing it.
+10. `git commit -m "Resolve merge conflict"` — Creates a commit after resolving a normal merge conflict.
+11. `git status` — Helps identify which files are conflicted and what Git expects you to do next.
+
+## 4. Stashing
+
+12. `git stash` — Temporarily saves uncommitted changes so you can work with a clean working directory.
+13. `git stash list` — Shows all saved stashes.
+14. `git stash pop` — Applies the latest stash and removes it from the stash list.
+15. `git stash apply` — Applies a stash without removing it from the stash list.
+
+## 5. Cherry-Pick
+
+16. `git cherry-pick <commit-hash>` — Applies a specific commit from another branch onto the current branch.
+17. `git cherry-pick --continue` — Continues a cherry-pick after resolving a conflict.
+18. `git cherry-pick --skip` — Skips the current commit during a cherry-pick operation.
+19. `git cherry-pick --abort` — Cancels the cherry-pick and restores the previous state.
 
