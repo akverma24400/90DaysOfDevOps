@@ -293,19 +293,14 @@ I compared my GitHub profile before and after the makeover.
 
 ### Before
 
-Add your **before screenshot** here:
 
-```markdown
 > ![GitHub Profile Before](./images/before.png)
-```
+
 
 ### After
 
-Add your **after screenshot** here:
 
-```markdown
 > ![GitHub Profile After](./images/Screenshot%202026-08-23%20182437.png)
-```
 
 Recommended Day 27 structure:
 
