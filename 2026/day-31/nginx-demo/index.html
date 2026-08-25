@@ -1,0 +1,113 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 31 - Nginx Demo</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+      background: #1f2937;
+      padding: 45px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #38bdf8;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .logo {
+      font-size: 70px;
+      margin-bottom: 15px;
+    }
+
+    .box {
+      background: #0f172a;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+    }
+
+    .success {
+      color: #22c55e;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="logo">🐳</div>
+
+    <h1>Nginx Demo</h1>
+
+    <h2>90 Days of DevOps - Day 31</h2>
+
+    <p>
+      Welcome to my custom Nginx webpage running inside a Docker container.
+    </p>
+
+    <p>
+      Today I practiced building Docker images, running containers,
+      port mapping, Dockerfiles, and serving static web content using Nginx.
+    </p>
+
+    <div class="box">
+      docker build -t nginx-demo:v1 .
+    </div>
+
+    <div class="box">
+      docker run -d --name nginx-demo -p 8080:80 nginx-demo:v1
+    </div>
+
+    <p class="success">
+      ✅ Nginx is running successfully inside Docker!
+    </p>
+
+    <footer>
+      Day 31 | Docker + Nginx Practice 🚀
+    </footer>
+
+  </div>
+
+</body>
+</html>
+```
+

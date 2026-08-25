@@ -1,0 +1,103 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 31 - Docker Practice</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background: #1e293b;
+      padding: 40px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 700px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #38bdf8;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .docker {
+      font-size: 70px;
+      margin: 20px 0;
+    }
+
+    .command {
+      background: #020617;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      margin-top: 20px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="docker">🐳</div>
+
+    <h1>90 Days of DevOps</h1>
+
+    <h2>Day 31 - Docker Practice</h2>
+
+    <p>
+      This webpage is running inside a Docker container.
+    </p>
+
+    <p>
+      Today I am practicing Dockerfiles, building custom images,
+      running containers, and understanding how applications are
+      packaged with Docker.
+    </p>
+
+    <div class="command">
+      docker build -t day31-nginx:v1 .
+    </div>
+
+    <div class="command">
+      docker run -d -p 8080:80 day31-nginx:v1
+    </div>
+
+    <div class="footer">
+      Learning Docker | DevOps Journey 🚀
+    </div>
+
+  </div>
+
+</body>
+</html>
+```
+
