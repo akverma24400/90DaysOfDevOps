@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 34 Guestbook</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Day 34 Guestbook</h1>
+        <p class="subtitle">Flask + MySQL + Redis</p>
+
+        <section class="status">
+            <span>🗄️ MySQL stores messages</span>
+            <span>⚡ Redis page visits: {{ visits }}</span>
+        </section>
+
+        <form action="{{ url_for('add_message') }}" method="post">
+            <input type="text" name="name" placeholder="Your name" maxlength="100" required>
+            <textarea name="message" placeholder="Write a message" maxlength="255" required></textarea>
+            <button type="submit">Add Message</button>
+        </form>
+
+        <section>
+            <h2>Messages</h2>
+            {% if messages %}
+                {% for item in messages %}
+                    <article class="message">
+                        <strong>{{ item.name }}</strong>
+                        <p>{{ item.message }}</p>
+                        <small>{{ item.created_at }}</small>
+                    </article>
+                {% endfor %}
+            {% else %}
+                <p>No messages yet. Add the first one!</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
