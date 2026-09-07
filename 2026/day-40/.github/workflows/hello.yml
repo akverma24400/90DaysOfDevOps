@@ -1,0 +1,38 @@
+# Nmae of the workflow
+name: hello-workflow
+
+# triger the workflow on push to main branch
+on:
+  push:
+    branches:
+      - main
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: say hello
+        run: echo "Hello! from Github Actions"
+
+
+# Print the current date and time
+      - name: print date and time
+        run: date
+# Print the name of the branch that triggered the run 
+      - name: print branch name
+        run: |
+          echo "Branch name: ${{ github.ref_name }}"
+      
+# List the files in the repo
+      - name: list files in the repo 
+        run: ls -la
+# Print the runner's operating system
+      - name: printing runner OS
+        run: | 
+          echo "runner OS: ${{runner.os}}"
+
+# Breaking the code intentionally to see the failure in the workflow
+#     - name: breaking the code
+#       run: exit 1
