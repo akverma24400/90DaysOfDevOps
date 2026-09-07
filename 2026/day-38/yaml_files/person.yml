@@ -1,0 +1,18 @@
+---
+# key value pairs
+
+name: Akash Verma
+role: CloudOps Engineer
+experience_years: 1
+learning: true
+
+# tools and hobbies
+
+tools:
+  - Docker
+  - AWS
+  - Linux
+  - Kubernetes
+  - GitHub Actions
+
+hobbies: [Gym, Cricket, Coding]

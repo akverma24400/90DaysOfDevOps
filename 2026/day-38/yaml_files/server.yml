@@ -1,0 +1,22 @@
+---
+server:
+  name: server1
+  ip_address: 127.0.0.1
+  port: 80
+
+database:
+  host: localhost
+  name: dev_db
+  credentials: 
+    - username: root
+    - password: root@123
+
+startup_script: |
+  sudo apt-get update
+  sudo apt install nginx -y
+  sudo systemctl start nginx
+
+description: >
+  this server host
+  our production website and 
+  runs nginx
