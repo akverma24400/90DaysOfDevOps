@@ -1,0 +1,46 @@
+name: github-hosted-runner
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+  ubuntu-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print OS name
+        run: echo "${{runner.os}}"
+      - name: Runner Host name
+        run: hostname
+      - name: current user running the job
+        run: whoami
+      - name: print software versions
+        run: |
+          echo "Docker version: $(docker --version)"
+          echo "Python version: $(Python --version)"
+          echo "Node version: $(node --version)"
+          echo "Git version: $(git --version)"
+
+  windows-runner: 
+    runs-on: windows-latest
+    steps:
+      - name: print OS name
+        run: echo "${{runner.os}}"
+
+      - name: Runner host name
+        run: hostname
+
+      - name: Current user runninng the job
+        run: echo $env.USERNAME
+
+  macOS-runner: 
+    runs-on: macos-latest
+    steps:
+      - name: print OS name
+        run: echo "${{runner.os}}"
+
+      - name: Runner host name
+        run: hostname
+
+      - name: Current user runninng the job
+        run: whoami
