@@ -1,0 +1,35 @@
+name: Dependency Cache Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cache-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache pip downloads
+        id: pip-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-py312-${{ hashFiles('requirements.txt') }}
+
+      - name: Show cache status
+        env:
+          CACHE_HIT: ${{ steps.pip-cache.outputs.cache-hit }}
+        run: echo "Cache hit = $CACHE_HIT"
+
+      - name: Install dependencies
+        run: time python -m pip install -r requirements.txt
+
+      - name: Verify installation
+        run: python -m pytest --version
