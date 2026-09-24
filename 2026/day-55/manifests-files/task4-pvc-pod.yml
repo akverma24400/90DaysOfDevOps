@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pv-pod
+spec: 
+  containers:
+    - name: pv-pod
+      image: busybox
+      command: ["/bin/sh","-c", 'echo \"pod started at $(date)\" >> /data/message.txt; sleep 3600']
+      volumeMounts:
+        - name: pvc-storage
+          mountPath: /data
+
+  volumes:
+    - name: pvc-storage
+      persistentVolumeClaim:
+        claimName: test-pvc
