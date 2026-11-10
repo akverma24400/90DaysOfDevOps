@@ -1,0 +1,5 @@
+echo "akash" > .vault_pass
+chmod 600 .vault_pass
+echo ".vault_pass" >> .gitignore
+
+ansible-playbook db-setup.yml --vault-password-file .vault_pass
