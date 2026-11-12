@@ -1,0 +1,124 @@
+
+# SPDX-License-Identifier: MIT-0
+---
+# Docker installation and configuration tasks
+
+# 1. Install Docker dependencies
+- name: Install Docker dependencies
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - curl
+      - gnupg
+      - python3-docker
+    state: present
+    update_cache: yes
+  become: yes
+  tags:
+    - docker
+
+# 2. Create Docker keyring directory
+- name: Create Docker keyring directory
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: "0755"
+  become: yes
+  tags:
+    - docker
+
+# 3. Add Docker GPG key
+- name: Add Docker GPG key
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    mode: "0644"
+  become: yes
+  tags:
+    - docker
+
+# 4. Detect system architecture
+- name: Get system architecture
+  ansible.builtin.command: dpkg --print-architecture
+  register: docker_apt_arch
+  changed_when: false
+  tags:
+    - docker
+
+
+
+# 5. Add official Docker repository
+- name: Add Docker APT repository
+  ansible.builtin.deb822_repository:
+    name: docker
+    types: [deb]
+    uris: https://download.docker.com/linux/ubuntu
+    suites: "{{ ansible_distribution_release }}"
+    components:
+      - stable
+    architectures: "{{ docker_apt_arch.stdout }}"
+    signed_by: /etc/apt/keyrings/docker.asc
+    state: present
+  become: yes
+  tags:
+    - docker
+
+- name: Refresh APT cache after adding Docker repository
+  ansible.builtin.apt:
+    update_cache: yes
+  become: yes
+  tags:
+    - docker
+
+
+# 6. Install Docker Engine and Compose plugin
+- name: Install Docker Engine and Compose
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: present
+    update_cache: yes
+  become: yes
+  notify:
+    - Restart Docker
+  tags:
+    - docker
+
+# 7. Start and enable Docker
+- name: Start and enable Docker
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
+  when: not ansible_check_mode
+  become: yes
+  tags:
+    - docker
+
+# 8. Add deploy user to Docker group
+- name: Add deploy user to Docker group
+  ansible.builtin.user:
+    name: deploy
+    groups: docker
+    append: yes
+  when: not ansible_check_mode
+  become: yes
+  tags:
+    - docker
+
+# 9. Deploy Nginx Docker container
+- name: Deploy Nginx application container
+  community.docker.docker_container:
+    name: "{{ docker_app_name }}"
+    image: "{{ docker_app_image }}:{{ docker_app_tag }}"
+    state: started
+    restart_policy: unless-stopped
+    published_ports:
+      - "{{ docker_app_port }}:{{ docker_container_port }}"
+  become: yes
+  tags:
+    - docker

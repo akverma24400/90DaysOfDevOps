@@ -1,0 +1,16 @@
+#SPDX-License-Identifier: MIT-0
+# defaults file for roles/common
+
+# SPDX-License-Identifier: MIT-0
+---
+# Default packages for all servers
+
+common_packages:
+  - curl
+  - wget
+  - git
+  - tree
+
+timezone: Asia/Kolkata
+
+

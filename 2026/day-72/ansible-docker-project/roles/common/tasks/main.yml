@@ -1,0 +1,31 @@
+#SPDX-License-Identifier: MIT-0
+---
+- name: Update package cache
+  apt:
+    update_cache: true
+  tags: common
+
+- name: Install common packages
+  apt:
+    name: "{{ common_packages }}"
+    state: present
+  tags: common
+
+- name: Set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+  tags: common
+
+- name: Set timezone
+  timezone:
+    name: "{{ timezone }}"
+  tags: common
+
+- name: Create deploy user
+  user:
+    name: deploy
+    groups: sudo
+    append: yes
+    shell: /bin/bash
+    state: present
+  tags: common
